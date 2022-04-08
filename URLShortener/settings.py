@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "shortener.apps.ShortenerConfig",
+    "drf_yasg",
+    "shortener",
 ]
 
 MIDDLEWARE = [

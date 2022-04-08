@@ -1,13 +1,14 @@
-from hashlib import md5
+import time
 
+from hashlib import md5
 from django.db import models
 
 
 class URL(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
-    url = models.URLField(unique=True)
-    short = models.URLField(unique=True)
-    clicks = models.IntegerField(default=0)
+    url = models.URLField()
+    short = models.CharField(max_length=10, unique=True)
+    clicks = models.PositiveIntegerField(default=0)
 
     def clicked(self):
         self.clicks += 1
@@ -15,7 +16,7 @@ class URL(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.id:
-            self.url_hash = md5(self.url.encode()).hexdigest()[:10]
+            self.short = md5(f"{self.url}{time.time()}".encode()).hexdigest()[:10]
 
         return super().save(*args, **kwargs)
 
