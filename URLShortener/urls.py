@@ -22,5 +22,5 @@ urlpatterns = [
         name="schema-swagger-ui",
     ),
     path("admin/", admin.site.urls),
-    path("", include("shortener.urls", namespace='shortener')),
+    path("", include("shortener.urls", namespace="shortener")),
 ]
