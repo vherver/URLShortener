@@ -1,3 +1,11 @@
 from django.shortcuts import render
+from rest_framework import generics, status
 
-# Create your views here.
+from shortener.serializers import URLSerializer
+
+
+class ShortenerView(generics.CreateAPIView):
+    serializer_class = URLSerializer
+
+
+
