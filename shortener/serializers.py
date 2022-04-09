@@ -9,5 +9,4 @@ class URLSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = URL
-
-        fields = ('url', 'short')
+        fields = ("url", "short")
