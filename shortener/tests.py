@@ -39,11 +39,9 @@ class TestURLSerializer(TestCase):
         assert not serializer.is_valid()
         assert serializer.errors["url"][0].code == "required"
 
-
     def test_url_provided(self):
         data = {"url": "https://youtube.com"}
         assert URLSerializer(data=data).is_valid()
-
 
     def test_not_valid_url(self):
         data = {"url": "123"}
