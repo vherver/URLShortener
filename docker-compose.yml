@@ -1,0 +1,15 @@
+# docker-compose.yml
+version: '3.7'
+
+services:
+  web:
+      container_name: django_shortener
+      build: .
+      working_dir: /code
+      command: bash devutils/run-migrations.sh
+      volumes:
+        - .:/code
+      ports:
+        - '8000:8000'
+      expose:
+        - '8000'
